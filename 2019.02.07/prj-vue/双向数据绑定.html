@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>双向数据绑定</title>
+	</head>
+	<body>
+		<div id="app">
+			<p>姓名展示</p>
+			FirstName:<input type="text" v-model="firstName"/><br />
+			LastName:<input type="text" v-model="lastName"/><br />
+			FullName:{{firstName+lastName}}
+		</div>
+		<script src="./node_modules/vue/dist/vue.js"></script>
+		
+		<script type="text/javascript">
+			const vm = new Vue({
+				el: "#app",
+				data: {
+					firstName: "",
+					lastName: ""
+				}
+			});
+		</script>
+	</body>
+</html>

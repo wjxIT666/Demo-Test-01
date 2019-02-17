@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>prj-js(DOM)-模仿京东广告条事件</title>
+		<style type="text/css">
+			/*去除css的默认样式*/
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.header {
+				height: 80px;
+				background-color: #000;
+				/*子绝父相*/
+				position: relative;
+			}
+			
+			.w {
+				width: 1190px;
+				margin: 0 auto;
+			}
+			
+			a {
+				text-decoration: none;
+				
+				/*定位*/
+				position: absolute;
+				right: 0;
+				top: 0;
+				
+				width: 20px;
+				height: 20px;
+				background-color: #fff;
+				
+				font-size: 16px;
+				color: #000;
+				
+				text-align: center;
+				line-height: 20px;
+				
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="header">
+			<div class="w">
+				<img src="images/header.jpg" alt="" />
+				<a href="#">×</a>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			//1.获取事件源和相关节点元素
+			var header = document.getElementsByTagName("div")[0];
+			var a = document.getElementsByTagName("a")[0];
+			//2.绑定事件
+			a.onclick = function() {
+				header.style.display = "none";
+			}
+		</script>
+	</body>
+</html>

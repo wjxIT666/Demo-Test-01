@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>prj-js(DOM)-隔行变色</title>
+	</head>
+	<body>
+		<ul>
+			<li>隔行变色</li>
+			<li>隔行变色</li>
+			<li>隔行变色</li>
+			<li>隔行变色</li>
+		</ul>
+		
+		<script type="text/javascript">
+			//1.获取事件源和相关节点元素
+			var liArray = document.getElementsByTagName("li");
+			//2.绑定事件
+			for(var i =0; i<liArray.length; i++) {
+				if(i%2===0) {
+					liArray[i].style.backgroundColor = "pink";
+				}else {
+					liArray[i].style.backgroundColor = "red";
+				}
+				
+				var color = "";
+				liArray[i].onmouseover = function() {
+					color = this.style.backgroundColor;
+					this.style.backgroundColor = "blue";
+				}
+				
+				liArray[i].onmouseout = function() {
+					this.style.backgroundColor = color;
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>无状态组件开发</title>
+	</head>
+	<body>
+		<div id="app"></div>
+		<script src="./node_modules/@babel/standalone/babel.js"></script>
+		<script src="./node_modules/react/umd/react.development.js"></script>
+		<script src="./node_modules/react-dom/umd/react-dom.development.js"></script>
+		
+		<script type="text/babel">
+			function AppHeader() {
+				return (
+					<div>
+						<h1>无状态组件开发</h1>
+					</div>
+				)
+			}
+			
+			const user = {
+				"name":"jack"
+			}
+			
+			function AppMain(props) {
+				return (
+					<div>
+						<h1>{props.name}</h1>
+					</div>
+				)
+			}
+			
+			const element = (
+				<div>
+				<AppHeader />
+				<AppMain name={user.name}/>
+				</div>
+			)
+			
+			ReactDOM.render(
+				element,
+				document.getElementById('app')
+			)
+		</script>
+	</body>
+</html>

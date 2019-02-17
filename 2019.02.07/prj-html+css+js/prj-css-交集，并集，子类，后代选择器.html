@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>prj-css-交集，并集，子类，后代选择器</title>
+		<style type="text/css">
+			h2 {
+				color: green;
+			}
+			
+			h2.xiongda {
+				color: red;
+			}
+			
+			.lufei, .suoluo {
+				width: 100px;
+				height: 100px;
+				background-color: #ccc;
+			}
+			
+			ul>li {
+				color: orange;
+			}
+			
+			li ol {
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<h2 class="xiongda">熊大</h2>
+		<h2>熊二</h2>
+		<h2>光头强</h2>
+		
+		<div class="lufei">路飞</div>
+		<div class="suoluo">索罗</div>
+		
+		<ul>
+			<li>省会
+				<ol>山西
+					<li>太原</li>
+					<li>大同</li>
+					<li>晋中</li>
+				</ol>
+			</li>
+		</ul>
+	</body>
+</html>

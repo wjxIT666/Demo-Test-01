@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>prj-css高级-translate3d</title>
+		<style type="text/css">
+			body {
+				perspective: 200px;
+			}
+			
+			div {
+				width: 100px;
+				height: 100px;
+				background-color: #000;
+				
+				/*过渡*/
+				transition: all 5s;
+			}
+			
+			div:hover {
+				transform: translate3d(400px,400px,-200px);
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+	</body>
+</html>

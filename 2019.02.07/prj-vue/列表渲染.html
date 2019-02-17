@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>列表渲染</title>
+	</head>
+	<body>
+		<div id="app">
+			<ul>
+				<li v-for="item in languages">{{item}}</li>
+			</ul>
+		</div>
+		<script src="./node_modules/vue/dist/vue.js"></script>
+		
+		<script type="text/javascript">
+			new Vue({
+				el: "#app",
+				data: {
+					languages: ['PHP','JAVA','Nodejs']
+				}
+			});
+		</script>
+	</body>
+</html>

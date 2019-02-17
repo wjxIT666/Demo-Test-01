@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>prj-js(DOM)-用户注册高亮显示2</title>
+		<style type="text/css">
+			input {
+				outline: none;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" /><br />
+		<input type="text" /><br />
+		<input type="text" /><br />
+		<input type="text" /><br />
+		<input type="text" /><br />
+		<button>用户注册高亮显示2</button>
+		
+		<script type="text/javascript">
+			//1.用户注册高亮显示
+			var inpArray = document.getElementsByTagName("input");
+			var btn = document.getElementsByTagName("button")[0];
+			//2.绑定事件
+			btn.onmouseover = function() {
+				for(var i=0; i<inpArray.length; i++) {
+					inpArray[i].style.border = "1px solid red";
+				}
+			}
+			
+			btn.onmouseout = function() {
+				for(var i=0; i<inpArray.length; i++) {
+					inpArray[i].style.border = "";
+				}
+			}
+		</script>
+	</body>
+</html>

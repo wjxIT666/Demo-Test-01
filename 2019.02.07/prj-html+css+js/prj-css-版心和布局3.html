@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>prj-css-版心和布局3</title>
+		<style type="text/css">
+			/*去除css的默认样式*/
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			ul li {
+				list-style: none;
+			}
+			
+			.header,
+			.banner,
+			.main,
+			.footer {
+				background-color: #ccc;
+				border: 1px solid red;
+				text-align: center;
+				margin: 0 auto;
+				margin-top: 10px;
+			}
+			
+			.header, .footer {
+				height: 100px;
+				line-height: 100px;
+			}
+			
+			.banner {
+				width: 960px;
+				height: 50px;
+				line-height: 50px;
+			}
+			
+			.main {
+				width: 960px;
+			}
+			
+			li:first-child {
+				float: left;
+				width: 230px;
+				height: 200px;
+				background-color: pink;
+				line-height: 200px;
+			}
+			
+			li:nth-child(2) {
+				float: left;
+				width: 230px;
+				height: 200px;
+				background-color: red;
+				margin: 0 10px;
+				line-height: 200px;
+			}
+			
+			li:nth-child(3) {
+				float: left;
+				width: 230px;
+				height: 200px;
+				background-color: purple;
+				margin: 0 10px;
+				line-height: 200px;
+			}
+			
+			li:nth-child(4) {
+				float: right;
+				width: 230px;
+				height: 200px;
+				background-color: orange;
+				line-height: 200px;
+			}
+			
+			.clearfix:before,.clearfix:after {
+				display: table;
+				content: "";
+			}
+			
+			.clearfix:after {
+				clear: both;
+			}
+			
+			.clearfix {
+				*zoom: 1;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="header">header</div>
+		<div class="banner">banner</div>
+		<div class="main clearfix">
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+			</ul>
+		</div>
+		<div class="footer">footer</div>
+	</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>prj-css-淘宝导播图</title>
+		<style type="text/css">
+			/*去除css的默认样式*/
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			ul li {
+				list-style: none;
+			}
+			
+			ul {
+				width: 200px;
+				height: 20px;
+				/*background-color: pink;*/
+				/*定位*/
+				position: absolute;
+				bottom: 20px;
+				left: 50%;
+				margin-left: -100px;
+			}
+			
+			li {
+				float: left;
+				width: 12px;
+				height: 12px;
+				margin: 4px 4px;
+				
+				border-radius: 50%;
+				
+				background-color: rgba(255,255,255,0.4);
+			}
+			
+			li:first-child {
+				margin-left: 50px;
+			}
+			
+			div {
+				width: 520px;
+				height: 280px;
+				margin: 200px auto;
+				/*子绝父相*/
+				position: relative;
+			}
+			
+			img:nth-child(2), img:nth-child(3) {
+				/*定位*/
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+			}
+			
+			img:nth-child(2) {
+				left: 0;
+			}
+			
+			img:nth-child(3) {
+				right: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<img src="images/taobao.jpg" alt="" />
+			<img src="images/left.png" alt="" />
+			<img src="images/right.png" alt="" />
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+	</body>
+</html>

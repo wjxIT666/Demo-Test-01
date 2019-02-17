@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>prj-js(DOM)-全选和反选</title>
+	</head>
+	<body>
+		<table border="1px" width="50%" height="600px" align="center">
+			<thead id="thd">
+				<tr>
+					<th><input type="checkbox" /></th>
+					<th>菜名</th>
+					<th>饭店名</th>
+				</tr>
+			</thead>
+			<tbody id="tbd">
+				<tr align="center">
+					<td><input type="checkbox"/></td>
+					<td>雪山盖顶</td>
+					<td>田老师饭店</td>
+				</tr>
+				
+				<tr align="center">
+					<td><input type="checkbox"/></td>
+					<td>红烧狮子头</td>
+					<td>田老师饭店</td>
+				</tr>
+				
+				<tr align="center">
+					<td><input type="checkbox"/></td>
+					<td>小葱拌豆腐</td>
+					<td>田老师饭店</td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<script type="text/javascript">
+			//1.获取事件源和相关节点元素
+			var thd = document.getElementById("thd");
+			var inp = thd.getElementsByTagName("input")[0];
+			
+			var tbd = document.getElementById("tbd");
+			var inpArray = tbd.getElementsByTagName("input");
+			
+			//2.绑定事件:全选
+			inp.onclick = function() {
+				if(inp.checked == true) {
+					for(var i=0; i<inpArray.length; i++) {
+						inpArray[i].checked = true;
+					}
+				}else {
+					for(var i=0; i<inpArray.length; i++) {
+						inpArray[i].checked = false;
+					}
+				}
+			}
+			
+			//2.绑定事件：反选
+			for(var i=0; i<inpArray.length; i++) {
+				inpArray[i].onclick = function() {
+					var bool = true;
+					for(var j=0; j<inpArray.length; j++) {
+						if(inpArray[j].checked == false) {
+							bool = false;
+						}
+					inp.checked = bool;
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

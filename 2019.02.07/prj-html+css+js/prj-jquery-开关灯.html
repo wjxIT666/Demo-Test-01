@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>prj-jquery-开关灯</title>
+		<style type="text/css">
+			body {
+				background-color: #ccc;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+		
+		<script type="text/javascript">
+			//1.主函数入口
+			$(function(){
+				//2.分析需求：开关灯
+				$("button").eq(0).click(function(){
+					$("body").css("background-color","#fff");
+				});
+				
+				$("button").eq(1).click(function(){
+					$("body").css("background-color","#000");
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<button>开灯</button>
+		<button>关灯</button>
+	</body>
+</html>

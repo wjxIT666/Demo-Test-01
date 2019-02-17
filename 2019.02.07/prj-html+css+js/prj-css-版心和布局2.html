@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>prj-css-版心和布局2</title>
+		<style type="text/css">
+			/*去除css的默认样式*/
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.header,
+			.banner,
+			.footer,
+			.main {
+				width: 960px;
+				background-color: #ccc;
+				border: 1px solid red;
+				text-align: center;
+				margin: 0 auto;
+				margin-top: 10px;
+			}
+			
+			.header, .footer {
+				height: 100px;
+				line-height: 100px;
+			}
+			
+			.banner {
+				height: 50px;
+				line-height: 50px;
+			}
+			
+			.left {
+				width: 350px;
+				height: 200px;
+				background-color: pink;
+				line-height: 200px;
+				
+				float: left;
+			}
+			
+			.right {
+				width: 600px;
+				height: 200px;
+				background-color: red;
+				line-height: 200px;
+				
+				float: right;
+			}
+			
+			.clearfix:after {
+				display: block;
+				content: ".";
+				visibility: hidden;
+				height: 0;
+				clear: both;
+			}
+			
+			.clearfix {
+				*zoom: 1;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="header">header</div>
+		<div class="banner">banner</div>
+		<div class="main clearfix">
+			<div class="left">left</div>
+			<div class="right">right</div>
+		</div>
+		<div class="footer">footer</div>
+	</body>
+</html>

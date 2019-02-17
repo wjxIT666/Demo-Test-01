@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>prj-css-子绝父相</title>
+		<style type="text/css">
+			div {
+				width: 310px;
+				height: 190px;
+				margin: 200px auto;
+				
+				/*子绝父相*/
+				position: relative;
+			}
+			
+			img:nth-child(2) {
+				/*定位*/
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			
+			img:nth-child(3) {
+				/*定位*/
+				position: absolute;
+				bottom: 0;
+				right: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<img src="images/adv.jpg" alt="" />
+			<img src="images/top_tu.gif" alt="" />
+			<img src="images/br.gif" alt="" />
+		</div>
+	</body>
+</html>

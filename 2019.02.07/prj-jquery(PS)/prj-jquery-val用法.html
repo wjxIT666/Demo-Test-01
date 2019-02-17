@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>prj-jquery-val用法</title>
+		<style type="text/css">
+			
+		</style>
+		<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+		
+		<script type="text/javascript">
+			//1.主函数入口
+			$(function(){
+				//2.分析需求：
+				$("input").focus(function(){
+					$(this).val("嘻嘻嘻");
+				});
+				
+				$("input").blur(function(){
+					$(this).val("哈哈哈");
+				});
+			});
+		</script>
+	</head>
+	<body>
+		京东：<input type="text" value="哈哈哈"/>
+	</body>
+</html>

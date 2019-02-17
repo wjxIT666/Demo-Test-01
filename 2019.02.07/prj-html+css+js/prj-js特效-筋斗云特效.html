@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>prj-js特效-筋斗云特效</title>
+		<style type="text/css">
+			/*去除css的默认样式*/
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			ul li {
+				list-style: none;
+			}
+			
+			ul {
+				width: 600px;
+				height: 30px;
+				
+				margin: 200px auto;
+				
+				/*子绝父相*/
+				position: relative;
+			}
+			
+			li {
+				width: 200px;
+				height: 100%;
+				
+				float: left;
+				
+				text-align: center;
+				line-height: 30px;
+			}
+			
+			li:nth-child(2) {
+				background-color: red;
+			}
+			
+			li:nth-child(3) {
+				background-color: green;
+			}
+			
+			li:nth-child(4) {
+				background-color: pink;
+			}
+			
+			span {
+				width: 200px;
+				height: 30px;
+				background-color: #ccc;
+				
+				/*定位*/
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			window.onload = function() {
+				//1.获取事件源和相关节点元素
+				var liArray = document.getElementsByTagName("li");
+				var span = document.getElementsByTagName("span")[0];
+				
+				var imgWidth = liArray[0].offsetWidth;
+				
+				//2.绑定事件
+				for(var i=0; i<liArray.length; i++) {
+					liArray[i].index = i;
+					liArray[i].onmouseover = function() {
+						animate(span,this.index*imgWidth);
+					}
+					
+					var count = 0;
+					liArray[i].onmouseout = function() {
+						animate(span,count*imgWidth);
+					}
+					
+					liArray[i].onclick = function() {
+						count = this.index;
+						animate(span,count*imgWidth);
+					}
+				}
+				
+				function animate(ele,target) {
+					//1.清空定时器
+					clearInterval(ele.timer);
+					//2.设置定时器
+					ele.timer = setInterval(function(){
+						//3.设置step
+						var step = (target - ele.offsetLeft)/10;
+						//4.二次设置step
+						step = step>0?Math.ceil(step):Math.floor(step);
+						//5.
+						ele.style.left = ele.offsetLeft + step + "px";
+						//6.
+						if(Math.abs(target - ele.offsetLeft)<Math.abs(step)) {
+							//7.
+							ele.style.left = target + "px";
+							//8.
+							clearInterval(ele.timer);
+						}
+					},100)
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<ul>
+			<span></span>
+			<li>课程A</li>
+			<li>课程B</li>
+			<li>课程C</li>
+		</ul>
+	</body>
+</html>

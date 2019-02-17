@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>prj-css高级-伸缩盒子</title>
+		<style type="text/css">
+			section {
+				width: 200px;
+				height: 200px;
+				margin: 200px auto;
+				
+				display: flex;
+			}
+			
+			div:first-child {
+				flex: 1;
+				height: 100%;
+				
+				background-color: pink;
+			}
+			
+			div:nth-child(2) {
+				flex: 2;
+				height: 100%;
+				
+				background-color: red;
+			}
+			
+			div:nth-child(3) {
+				flex: 3;
+				height: 100%;
+				
+				background-color: orange;
+			}
+		</style>
+	</head>
+	<body>
+		<section>
+			<div></div>
+			<div></div>
+			<div></div>
+		</section>
+	</body>
+</html>

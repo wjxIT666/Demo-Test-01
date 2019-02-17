@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>prj-jquery-动态创建表单</title>
+		<style type="text/css">
+			div {
+				width: 200px;
+				height: 200px;
+				margin-top: 10px;
+			}
+			
+			table {
+				border: 1px solid #000;
+			}
+			
+			td {
+				border: 1px solid #000;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-1.11.1.js">
+			
+		</script>
+		<script type="text/javascript">
+			//1.主函数入口
+			$(document).ready(function(){
+				//2.分析需求：动态创建表单
+				$("button").eq(0).click(function(){
+					var data = [{"name":"土豆","url":"http://www.tudou.com"},{"name":"爱奇艺","url":"http://www.iqiyi.com"}];
+					var str = "";
+					str += "<table>";
+					for(var i=0; i<data.length; i++) {
+						str+= "<tr><td>"+data[i].name+"</td><td>"+data[i].url+"</td></tr>"
+					}
+					str +="</table>";
+					$("div").html(str);
+				});
+				
+				$("button").eq(1).click(function(){
+					$("div").empty();
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<button>创建表单</button>
+		<button>删除表单</button>
+		<div></div>
+	</body>
+</html>

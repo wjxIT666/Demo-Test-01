@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>prj-js特效-两侧跟随广告</title>
+		<style type="text/css">
+			#img1 {
+				/*定位*/
+				position: absolute;
+				top: 80px;
+				left: 10px;
+			}
+			
+			#img2 {
+				/*定位*/
+				position: absolute;
+				top: 80px;
+				right: 10px;
+			}
+			
+			body {
+				height: 2000px;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			window.onload = function() {
+				//1.获取事件源和相关节点元素
+				var imgArray = document.getElementsByTagName("img");
+				//2.绑定事件
+				window.onscroll = function() {
+					for(var i=0; i<imgArray.length; i++) {
+						var val = scroll().top;
+						animate(imgArray[0],val+80);
+						animate(imgArray[1],val+80);
+					}
+				}
+				
+				function animate(ele,target) {
+					//1.清空定时器
+					clearInterval(ele.timer);
+					//2.设置定时器
+					ele.timer = setInterval(function(){
+						//3.设置step
+						var step = (target - ele.offsetTop)/10;
+						//4.二次设置step
+						step = step>0?Math.ceil(step):Math.floor(step);
+						//5.
+						ele.style.top = ele.offsetTop + step + "px";
+						//6.
+						if(Math.abs(target - ele.offsetTop)<Math.abs(step)) {
+							//7.
+							ele.style.top = target + "px";
+							//8.清空定时器
+							clearInterval(ele.timer);
+						}
+					},100);
+				}
+				
+				function scroll() {
+					return {
+						"top": window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop,
+						"left": window.pageXOffset || document.body.scrollLeft || document.documentElement.scrollLeft
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<img id="img1" src="images/gj_logo_03.png" alt="" />
+		<img id="img2" src="images/gj_logo_03.png" alt="" />
+	</body>
+</html>

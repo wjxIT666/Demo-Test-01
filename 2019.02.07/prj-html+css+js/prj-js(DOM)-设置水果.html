@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>prj-js(DOM)-设置水果</title>
+	</head>
+	<body>
+		<select>
+			<option value="0">苹果</option>
+			<option value="1">香蕉</option>
+			<option value="2">鲤鱼</option>
+			<option value="3">西瓜</option>
+		</select>
+		<button>找到鲤鱼</button>
+		
+		<script type="text/javascript">
+			//1.获取事件源和相关节点元素
+			var btn = document.getElementsByTagName("button")[0];
+			var opa = document.getElementsByTagName("option")[2];
+			//2.绑定事件
+			btn.onclick = function() {
+				opa.selected = true;
+			}
+		</script>
+	</body>
+</html>

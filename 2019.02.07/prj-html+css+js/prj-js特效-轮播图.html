@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>prj-js特效-轮播图</title>
+		<style type="text/css">
+			/*去除css的默认样式*/
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			ul li {
+				list-style: none;
+			}
+			
+			.box1 {
+				width: 332px;
+				height: 195px;
+				
+				margin: 200px auto;
+				/*子绝父相*/
+				position: relative;
+				/*隐藏多余部分*/
+				overflow: hidden;
+			}
+			
+			ul {
+				width: 500%;
+				/*定位*/
+				position: absolute;
+				left: 0;
+			}
+			
+			li {
+				float: left;
+			}
+			
+			.box2 {
+				/*定位*/
+				position: absolute;
+				bottom: 10px;
+				right: 10px;
+			}
+			
+			span {
+				display: inline-block;
+				width: 20px;
+				height: 20px;
+				background-color: #fff;
+				
+				font-size: 16px;
+				text-align: center;
+				line-height: 20px;
+				color: #000;
+				
+				cursor: pointer;
+			}
+			
+			.current {
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box1">
+			<ul>
+				<li><img src="images/bayaa-main-2_03.png" alt="" /></li>
+				<li><img src="images/bayaa-main-3_03.png" alt="" /></li>
+				<li><img src="images/bayaa_main-1_03.png" alt="" /></li>
+				<li><img src="images/bayaa_main-5_03.png" alt="" /></li>
+			</ul>
+			<div class="box2">
+				<span>1</span>
+				<span>2</span>
+				<span>3</span>
+				<span>4</span>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			//1.获取事件源和相关节点元素
+			var spanArray = document.getElementsByTagName("span");
+			var liArray = document.getElementsByTagName("liArray");
+			var ul = document.getElementsByTagName("ul")[0];
+			var box1 = document.getElementsByTagName("div")[0];
+			var imgWidth = box1.offsetWidth;
+			//2.绑定事件
+			for(var i =0; i<spanArray.length; i++) {
+				spanArray[i].index = i;
+				spanArray[i].onclick = function() {
+					for(var j=0; j<spanArray.length; j++) {
+						spanArray[j].className = "";
+					}
+					this.className = "current";
+					animate(ul,-this.index*imgWidth);
+				}
+			}
+			
+			setInterval(autoPlay,3500);
+			
+			var key = 0;
+			var square = 0;
+			function autoPlay() {
+				key++;
+				if(key>spanArray.length-1) {
+					ul.style.left = 0;
+					key = 0;
+				}
+				animate(ul,-key*imgWidth);
+				
+				square++;
+				if(square>spanArray.length-1) {
+					square = 0;
+				}
+				
+				for(var i=0; i<spanArray.length; i++) {
+					for(var j=0; j<spanArray.length; j++) {
+						spanArray[j].className = "";
+					}
+					spanArray[square].className = "current";
+				}
+			}
+			
+			function animate(ele,target) {
+				//1.清空定时器
+				clearInterval(ele.timer);
+				//2.设置speed
+				var speed = (target - ele.offsetLeft)>0?10:-10;
+				//3.设置定时器
+				ele.timer = setInterval(function(){
+					//4.设置val
+					var val = target - ele.offsetLeft;
+					//5.
+					ele.style.left = ele.offsetLeft + speed + "px";
+					//6.
+					if(Math.abs(val)<Math.abs(speed)) {
+						//7.
+						ele.style.left = target + "px";
+						//8.清空定时器
+						clearInterval(ele.timer);
+					}
+				},100);
+			}
+		</script>
+	</body>
+</html>

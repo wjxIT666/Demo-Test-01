@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>prj-js特效-固定导航栏</title>
+		<style type="text/css">
+			/*去除css的默认样式*/
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			img {
+				vertical-align: middle;
+			}
+			
+			.bottom {
+				padding-top: 10px;
+				text-align: center;
+			}
+			
+			.current {
+				/*定位*/
+				position: fixed;
+				top: 0;
+				left: 0;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			window.onload = function() {
+				//1.获取事件源和相关节点元素
+				var top = document.getElementsByClassName("top")[0];
+				var height = top.offsetHeight;
+				var middle = document.getElementsByClassName("middle")[0];
+				var bottom = document.getElementsByClassName("bottom")[0];
+				
+				//2.绑定事件
+				window.onscroll = function() {
+					if(scroll().top>height) {
+						middle.className = "current";
+						bottom.style.paddingTop = middle.offsetHeight + "px";
+					}else {
+						middle.className = "";
+						botom.style.paddingTop = 0;
+					}
+				}
+				
+				function scroll() {
+					return {
+						"top": window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop,
+						"left": window.pageXOffset || document.body.scrollLeft || document.documentElement.scrollLeft
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div class="top">
+			<img src="images/top.png" alt="" />
+		</div>
+		<div class="middle">
+			<img src="images/nav.png" alt="" />
+		</div>
+		<div class="bottom">
+			<img src="images/main.png" alt="" />
+		</div>
+	</body>
+</html>

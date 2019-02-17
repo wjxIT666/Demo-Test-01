@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>prj-js(DOM)-京东文本框聚焦事件</title>
+	</head>
+	<body>
+		京东：<input type="text" value="京东"/>
+		
+		<script type="text/javascript">
+			//1.获取事件源和相关节点元素
+			var inp = document.getElementsByTagName("input")[0];
+			//2.绑定事件
+			inp.onfocus = function() {
+				this.value = "";
+			}
+			
+			inp.onblur = function() {
+				this.value = "京东";
+			}
+		</script>
+	</body>
+</html>

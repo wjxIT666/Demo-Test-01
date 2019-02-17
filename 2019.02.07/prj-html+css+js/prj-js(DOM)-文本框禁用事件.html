@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>prj-js(DOM)-文本框禁用事件</title>
+	</head>
+	<body>
+		<input type="text" value="禁用"/>
+		<button>禁用事件</button>
+		
+		<script type="text/javascript">
+			//1.获取事件源和相关节点元素
+			var btn = document.getElementsByTagName("button")[0];
+			var inp = document.getElementsByTagName("input")[0];
+			//2.绑定事件
+			btn.onclick = function() {
+				inp.disabled = true;
+			}
+		</script>
+	</body>
+</html>

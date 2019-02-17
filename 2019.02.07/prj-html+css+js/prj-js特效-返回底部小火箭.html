@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>prj-js特效-返回底部小火箭</title>
+		<style type="text/css">
+			.box1 {
+				font-size: 20px;
+				line-height: 28px;
+				text-align: center;
+				color: red;
+			}
+			
+			.box2 {
+				width: 60px;
+				height: 90px;
+				background-color: pink;
+				
+				cursor: pointer;
+				
+				/*定位*/
+				position: fixed;
+				bottom: 20px;
+				right: 20px;
+				
+				display: none;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			window.onload = function() {
+				//1.获取事件源和相关节点元素
+				var box2 = document.getElementsByClassName("box2")[0];
+				//2.绑定事件
+				window.onscroll = function() {
+					if(scroll().top>200) {
+						box2.style.display = "block";
+					}else {
+						box2.style.display = "none";
+					}
+					
+					
+					var target = 0;
+					var leader = 0;
+					var timer = null;
+					box2.onclick = function() {
+						leader = scroll().top;
+						//1.清空定时器
+						clearInterval(timer);
+						//2.设置定时器
+						timer = setInterval(function(){
+							//3.设置step
+							var step = (target - leader)/10;
+							//4.二次设置step
+							step = step>0?Math.ceil(step):Math.floor(step);
+							//5.
+							
+							leader = step + leader;
+							window.scrollTo(0,leader);
+							//6.
+							if(leader === 0) {
+								//7.清空定时器
+								clearInterval(timer);
+							}
+						},100)
+					}
+				}
+				
+				function scroll() {
+					return {
+						"top": window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop,
+						"left": window.pageXOffset || document.body.scrollLeft || document.documentElement.scrollLeft
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div class="box1">
+			This is Top！！<br />
+			返回底部小火箭<br />
+			返回底部小火箭<br />
+			返回底部小火箭<br />
+			返回底部小火箭<br />
+			返回底部小火箭<br />
+			返回底部小火箭<br />
+			返回底部小火箭<br />
+			返回底部小火箭<br />
+			返回底部小火箭<br />
+			返回底部小火箭<br />
+			返回底部小火箭<br />
+			返回底部小火箭<br />
+			返回底部小火箭<br />
+			返回底部小火箭<br />
+			返回底部小火箭<br />
+			返回底部小火箭<br />
+			返回底部小火箭<br />
+			返回底部小火箭<br />
+			返回底部小火箭<br />
+			返回底部小火箭<br />
+			返回底部小火箭<br />
+			返回底部小火箭<br />
+			返回底部小火箭<br />
+			返回底部小火箭<br />
+			返回底部小火箭<br />
+			返回底部小火箭<br />
+			返回底部小火箭<br />
+			返回底部小火箭<br />
+			返回底部小火箭<br />
+			返回底部小火箭<br />
+			返回底部小火箭<br />
+			返回底部小火箭<br />
+			返回底部小火箭<br />
+			返回底部小火箭<br />
+			返回底部小火箭<br />
+			返回底部小火箭<br />
+			返回底部小火箭<br />
+		</div>
+		<div class="box2"></div>
+	</body>
+</html>

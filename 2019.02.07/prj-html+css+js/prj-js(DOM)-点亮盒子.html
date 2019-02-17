@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>prj-js(DOM)-点亮盒子</title>
+		<style type="text/css">
+			.current {
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<button>盒子A</button>
+		<button>盒子B</button>
+		<button>盒子C</button>
+		<button>盒子D</button>
+		<button>盒子E</button>
+		
+		<script type="text/javascript">
+			//1.获取事件源和相关节点元素
+			var btnArray = document.getElementsByTagName("button");
+			//2.绑定事件
+			for(var i=0; i<btnArray.length; i++) {
+				btnArray[i].onclick = function() {
+					for(var j=0; j<btnArray.length; j++) {
+						btnArray[j].className = "";
+					}
+					this.className = "current";
+				}
+			}
+		</script>
+	</body>
+</html>

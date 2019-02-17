@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>prj-jquery-添加按钮</title>
+		<style type="text/css">
+			div {
+				width: 200px;
+				height: 200px;
+				border: 1px solid #ccc;
+				margin-top: 10px;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+		
+		<script type="text/javascript">
+			//1.主函数入口
+			$(function(){
+				//2.分析需求：添加按钮
+				$("button").click(function(){
+					$("<button>按钮</button>").appendTo($("div"));
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<button>添加按钮</button>
+		<div></div>
+	</body>
+</html>

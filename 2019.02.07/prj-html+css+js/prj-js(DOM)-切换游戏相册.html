@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>prj-js(DOM)-切换游戏相册</title>
+		<style type="text/css">
+			/*去除css的默认样式*/
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			ul li {
+				list-style: none;
+				float: left;
+			}
+			
+			a {
+				display: block;
+				
+				text-decoration: none;
+				
+				color: #008000;
+				
+				margin: 20px 0;
+			}
+			
+			.p1 {
+				position: fixed;
+				left: 0;
+				top: 560px;
+			}
+			
+			.img1 {
+				position: fixed;
+				left: 0;
+				top: 320px;
+			}
+		</style>
+	</head>
+	<body>
+		<p>游戏相册</p>
+		<a href="#">切换</a>
+		<div>
+			<ul>
+				<li><a href="images/01.jpg" title="游戏A"><img src="images/01.jpg" alt="" /></a></li>
+				<li><a href="images/02.jpg" title="游戏B"><img src="images/02.jpg" alt="" /></a></li>
+				<li><a href="images/03.jpg" title="游戏C"><img src="images/03.jpg" alt="" /></a></li>
+			</ul>
+		</div>
+		<img src="images/adv.jpg" alt="" class="img1"/>
+		<p class="p1">显示游戏名称</p>
+		
+		<script type="text/javascript">
+			//1.获取事件源和相关节点元素
+			var aArray = document.getElementsByTagName("a");
+			var img1 = document.getElementsByClassName("img1")[0];
+			
+			var p = document.getElementsByClassName("p1")[0];
+			//2.绑定事件
+			for(var i=0; i<aArray.length; i++) {
+				aArray[i].onclick = function() {
+					img1.src = this.href;
+					p.innerHTML = this.title;
+					return false;
+				}
+			}
+		</script>
+	</body>
+</html>

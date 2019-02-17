@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>prj-h5-多媒体</title>
+        <style type="text/css">
+            figcaption {
+               text-align: center;
+            }
+
+            .box1 {
+                width: 720px;
+                height: 360px;
+                background-color: #000;
+
+                margin: 0 auto;
+
+                /*子绝父相*/
+                position: relative;
+            }
+
+            video {
+                height: 100%;
+                width: 100%;
+            }
+
+            .a1 {
+                /*定位*/
+                position: absolute;
+                left: 10px;
+                bottom: 10px;
+
+                width: 20px;
+                height: 20px;
+                background-color: pink;
+            }
+
+            .progress {
+                /*定位*/
+                position: absolute;
+                left: 50px;
+                bottom: 10px;
+
+                width: 470px;
+                height: 20px;
+                background: rgba(255, 255, 255, 0.7);
+
+                border-radius: 10px;
+            }
+
+            .curr-progress {
+                width: 50%;
+                height: 20px;
+                background-color: #fff;
+
+                border-radius: 10px;
+            }
+
+            .time {
+                /*定位*/
+                position: absolute;
+                bottom: 10px;
+                right: 50px;
+
+                color: #fff;
+            }
+
+            .a2 {
+                /*定位*/
+                position: absolute;
+                bottom: 10px;
+                right: 10px;
+
+                width: 20px;
+                height: 20px;
+                background-color: pink;
+            }
+
+            .a11 {
+                /*定位*/
+                position: absolute;
+                bottom: 10px;
+                left: 10px;
+
+                width: 20px;
+                height: 20px;
+                background-color: pink;
+
+                border-radius: 50%;
+            }
+        </style>
+    </head>
+    <body>
+       <figure>
+           <figcaption>多媒体案例</figcaption>
+           <div class="box1">
+               <!-- video-->
+               <video src="video/fun.mp4"></video>
+               <!-- player-->
+               <a href="#" class="a1"></a>
+               <!-- progress-->
+               <div class="progress">
+                   <div class="curr-progress"></div>
+               </div>
+               <!-- time-->
+               <div class="time">
+                  <span class="totalTime">00:00:00</span>/<span class="currTime">00:00:00</span>
+               </div>
+               <!-- player-->
+               <a href="#" class="a2"></a>
+           </div>
+       </figure>
+
+        <script type="text/javascript">
+            //1.分析需求：点击第一个播放按钮，如果video播放过了，则video调用play方法，同时删除类，然后添加类
+            //2.获取事件源和相关节点元素
+            var a1 = document.querySelector(".a1");
+            var video = document.querySelector("video");
+            //3.绑定事件
+            a1.onclick = function() {
+                //4.书写事件驱动程序
+                if(video.paused) {
+                    video.play();
+                    this.classList.remove("a1");
+                    this.classList.add("a11");
+                }else {
+                    video.pause();
+                    this.classList.add("a1");
+                    this.classList.remove("a11");
+                }
+            }
+
+            //1.分析需求：算出总时长
+            var totalTime = document.querySelector(".totalTime");
+
+            var tTime = 0;
+
+            video.oncanplay = function() {
+                tTime = video.duration;
+
+                var h = Math.floor(tTime/3600);
+                var m = Math.floor(tTime%3600/60);
+                var s = Math.floor(tTime%60);
+
+                h = h>=10?h:"0"+h;
+                m = m>=10?m:"0"+m;
+                s = s>=10?s:"0"+s;
+
+                console.log(h);
+                console.log(m);
+                console.log(s);
+
+                totalTime.innerHTML = h+":"+m+":"+s;
+            }
+
+            //2.分析需求：算出当前时长
+            var currTime = document.querySelector(".currTime");
+
+            var currProgress = document.querySelector(".curr-progress");
+            console.log(currProgress);
+
+            video.ontimeupdate = function() {
+                var cTime = video.currentTime;
+
+                var h = Math.floor(cTime/3600);
+                var m = Math.floor(cTime%3600/60);
+                var s = Math.floor(cTime%60);
+
+                h = h>=10?h:"0"+h;
+                m = m>=10?m:"0"+m;
+                s = s>=10?s:"0"+s;
+
+                currTime.innerHTML = h+":"+m+":"+s;
+
+                var value = cTime/tTime;
+
+                currProgress.style.width = value*100+"%";
+            }
+
+            //2.分析需求：鼠标点击，进入全屏
+            var a2 = document.querySelector(".a2");
+
+            a2.onclick = function() {
+                video.webkitRequestFullScreen();
+            }
+        </script>
+    </body>
+</html>

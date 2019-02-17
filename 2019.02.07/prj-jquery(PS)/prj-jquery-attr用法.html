@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>prj-jquery-attr用法</title>
+		<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+		
+		<script type="text/javascript">
+			//1.主函数入口
+			$(function(){
+				//2.分析需求：attr用法
+				$("input").eq(0).attr("checked",true);
+			});
+		</script>
+	</head>
+	<body>
+		男：<input type="radio" name="sex" id="inp1"/>
+		女：<input type="radio" name="sex"/>
+	</body>
+</html>

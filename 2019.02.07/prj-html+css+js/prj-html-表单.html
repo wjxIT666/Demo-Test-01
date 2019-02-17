@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>prj-html-表单</title>
+	</head>
+	<body>
+		<fieldset id="">
+			<legend>学生档案</legend>
+			<label for="userName">姓名：</label>
+			<input type="text" name="userName" id="userName" placeholder="请输入您的姓名！"/><br />
+			<label for="userPhone">手机：</label>
+			<input type="tel" name="userPhone" id="userPhone" pattern="^1[\d]{10}$"/><br />
+			<label for="userEmail">邮箱：</label>
+			<input type="email" name="userEmail" id="userEmail" required="required"/><br />
+			<label for="userCollege">大学：</label>
+			<input type="text" name="userCollege" id="userCollege" list="college"/>
+			<datalist id="college">
+				<option value="UI设计"></option>
+				<option value="WEB前端"></option>
+				<option value="JAVA后台"></option>
+				<option value="大数据"></option>
+			</datalist><br />
+			<label for="userScore">成绩：</label>
+			<input type="number" name="userScore" id="userScore" max="100" min="0" /><br />
+			<label for="userLeave">毕业：</label>
+			<input type="date" name="userLeave" id="userLeave" />
+		</fieldset>
+	</body>
+</html>

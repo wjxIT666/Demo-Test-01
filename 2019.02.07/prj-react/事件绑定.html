@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>事件绑定</title>
+	</head>
+	<body>
+		<div id="app"></div>
+		<script src="./node_modules/@babel/standalone/babel.js"></script>
+		<script src="./node_modules/react/umd/react.development.js"></script>
+		<script src="./node_modules/react-dom/umd/react-dom.development.js"></script>
+		
+		<script type="text/babel">
+			
+			function handleClick() {
+				document.body.style.backgroundColor = "#000";
+			}
+			
+			const element = (
+				<div>
+					<button onClick={handleClick}>Click Me</button>
+				</div>
+			)
+			
+			ReactDOM.render(
+				element,
+				document.getElementById('app')
+			)
+		</script>
+	</body>
+</html>

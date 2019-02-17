@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>prj-jquery-体验jquery</title>
+		<style type="text/css">
+			div {
+				width: 100px;
+				height: 100px;
+				background-color: red;
+			}
+		</style>
+		
+		<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+		
+		<script type="text/javascript">
+			//1.主函数入口
+			$(function(){
+				//2.分析需求：体验jquery
+				$("div").click(function(){
+					$(this).css({"width":"200px","height":"200px","background-color":"#000"});
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div></div>
+	</body>
+</html>

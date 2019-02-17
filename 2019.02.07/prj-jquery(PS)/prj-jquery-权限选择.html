@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>prj-jquery-权限选择</title>
+		<style type="text/css">
+			select {
+				width: 80px;
+				height: 100px;
+			}
+			
+			div {
+				float: left;
+			}
+			
+			button {
+				float: left;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+		
+		<script type="text/javascript">
+			//1.主函数入口
+			$(function(){
+				//2.分析需求：权限选择
+				$("#toAllRight").click(function(){
+					$("#sec1>option").appendTo($("#sec2"));
+				});
+				
+				$("#toAllLeft").click(function(){
+					$("#sec2>option").appendTo($("#sec1"));
+				});
+				
+				$("#toRight").click(function(){
+					$("#sec1>option:selected").appendTo($("#sec2"));
+				});
+				
+				$("#toLeft").click(function(){
+					$("#sec2>option:selected").appendTo($("#sec1"));
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div class="box1">
+			<select multiple="multiple" id="sec1">
+				<option value="0">苹果</option>
+				<option value="1">香蕉</option>
+				<option value="2">西瓜</option>
+				<option value="3">橘子</option>
+			</select>
+		</div>
+		<div class="box2">
+			<button id="toRight">></button>
+			<button id="toLeft"><</button>
+			<button id="toAllRight">>></button>
+			<button id="toAllLeft"><<</button>
+		</div>
+		<div class="box3">
+			<select multiple="multiple" id="sec2">
+				
+			</select>
+		</div>
+	</body>
+</html>
